@@ -1,7 +1,7 @@
-<div class="row text-center" id="signup_form">
+<div class="row" id="signup_form"> 
 <%= render "layouts/flash_messages" %>
   <div class="row">
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-5 col-md-offset-4">
       <h1>新規登録</h1>
     
       <%= form_for(@user) do |f| %>
@@ -27,7 +27,7 @@
           <%= f.password_field :password_confirmation, class: "form-contorl" %>
         </div>
       
-        <div class="form-group">
+        <div class="form-group" align="center">
           <%= f.submit "登録する", class: "btn btn-success" %>
         </div>
       <% end %>

@@ -57,7 +57,7 @@ body  {
 
 /* ----- 背景の上に表示させたいコンテンツ ----- */
 .header-title  {
- position: relative; /*必ず必要*/
+ /*position: relative; */
  z-index: 2; /*必ず必要*/
  display: flex;
  width: 50%;
@@ -72,7 +72,7 @@ body  {
   margin-right: auto;
   margin-left: auto;
   position: static;
-  border-radius: 3%;
-  background-color: #ffffff;
+  border-radius: 6%;
+  background-color: #AAD7FF;
   width: 500px;
 }
