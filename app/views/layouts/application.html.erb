@@ -16,18 +16,20 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    
-    <div class="container">
-        <video id="bg-video" src="/images/nelco-top-comp.mp4" poster="/images/nelco-top.jpg" autoplay loop></video>
         
-        <!-- 背景の上に表示させたいコンテンツ -->
+      <!-- 背景の上に表示させたいコンテンツ -->
         <div class="header-title">
-
+          
+          <%= yield :cover %>
+          
+        </div>
+          
+        <div class="container">
+          
           <%= yield %>
           
         </div>
-    </div>
-    
+      
     <%= render "layouts/footer" %>
   </body>
 </html>
