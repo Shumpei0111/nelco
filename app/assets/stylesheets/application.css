@@ -2,10 +2,10 @@
 
 body  {
   padding-top: 160px;
+  font-family: Arial , Verdana , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
 }
 
 #top-contents  {
-  font-family: Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
   width: 500px;
   color: #ffffff;
   margin-right: auto;
@@ -65,4 +65,12 @@ body  {
   width: 100%;
   height: 100px;
   color: #ffffff;
+}
+
+#signup_form  {
+  margin-top: 25%;
+  position: static;
+  border-radius: 3%;
+  background-color: #ffffff;
+  width: 300px;
 }
