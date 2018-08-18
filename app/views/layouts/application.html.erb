@@ -18,9 +18,16 @@
     <%= render "layouts/navbar" %>
     
     <div class="container">
-        <%= render "layouts/flash_messages" %>
+        <video id="bg-video" src="/images/nelco-top-comp.mp4" poster="/images/nelco-top.jpg" autoplay loop></video>
         
-        <%= yield %>
+        <!-- 背景の上に表示させたいコンテンツ -->
+        <div class="header-title">
+          <%= render "layouts/flash_messages" %>
+        
+          <%= yield %>
+        </div>
     </div>
+    
+    <%= render "layouts/footer" %>
   </body>
 </html>
