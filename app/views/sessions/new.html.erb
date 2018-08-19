@@ -1,0 +1,24 @@
+<%= render "layouts/flash_messages" %>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-4">
+      <h1>ログイン</h1>
+    
+      <%= form_for(:session, url: login_path) do |f| %>
+    
+        <div class="form-group">
+          <%= f.label :email, "メールアドレス" %><br>
+          <%= f.email_field :email, class: "form-contorl" %>
+        </div>
+      
+        <div class="form-group">
+          <%= f.label :password, "パスワード" %><br>
+          <%= f.password_field :password, class: "form-contorl" %>
+        </div>
+
+          <%= f.submit "ログイン", class: "btn btn-success" %>
+      <% end %>
+      
+      <small><%= link_to "新規登録はこちらから", signup_path %></small>
+    </div>
+  </div>
+</div>
