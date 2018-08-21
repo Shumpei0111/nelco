@@ -6,7 +6,7 @@ body  {
 }
 
 #top-contents  {
-  width: 500px;
+  /* width: 500px; */
   color: #ffffff;
   margin-right: auto;
   margin-left : auto;
@@ -67,12 +67,3 @@ body  {
  margin: auto;
 }
 
-#signup_form  {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  position: static;
-  border-radius: 6%;
-  background-color: #AAD7FF;
-  width: 500px;
-}

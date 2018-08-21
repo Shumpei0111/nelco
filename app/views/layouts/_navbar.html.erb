@@ -14,7 +14,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li><button class="btn btn-info">投稿する</button></li>
-            <li><%= current_user.name %></li>
+            <li><%= link_to current_user.name, user_path(current_user) %></li>
             <li><%= link_to "ログアウト", logout_path, method: :delete, class: "btn btn-xs" %></li>
           <% else %>
             <li><%= link_to "ログイン", login_path, class: "btn btn-primary btn-block" %></li>

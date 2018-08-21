@@ -1,4 +1,4 @@
-<div class="row" id="signup_form"> 
+<div class="row"> 
 <%= render "layouts/flash_messages" %>
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
@@ -9,22 +9,22 @@
     
         <div class="form-group">
           <%= f.label :name, "名前" %><br>
-          <%= f.text_field :name, class: "form-contorl" %>
+          <%= f.text_field :name, class: "form-control" %>
         </div>
       
         <div class="form-group">
           <%= f.label :email, "メールアドレス" %><br>
-          <%= f.email_field :email, class: "form-contorl" %>
+          <%= f.email_field :email, class: "form-control" %>
         </div>
       
         <div class="form-group">
           <%= f.label :password, "パスワード" %><br>
-          <%= f.password_field :password, class: "form-contorl" %>
+          <%= f.password_field :password, class: "form-control" %>
         </div>
       
         <div class="form-group">
           <%= f.label :password_confirmation, "パスワード(確認用)" %><br>
-          <%= f.password_field :password_confirmation, class: "form-contorl" %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
       
         <div class="form-group">
