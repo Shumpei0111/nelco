@@ -3,12 +3,15 @@
 <p>views/toppages/index.html.erb</p>
 
 <p>
-    <strong>Posts:</strong><br>
     <% @nelcoposts.each do |image| %>
       <% if @nelcopost.image.present? %>
-        <%= image_tag @nelcopost.image.url %>
+        <%= image_tag @nelcopost.image.url %><br>
+        title: <%= image.title %>
+        posted by: <%= @user.name %>
       <% else %>
         <%= image_tag "nelco_post.jpg" %>
+        title: <%= image.title %>
+        posted by: <%= @user.name %>
       <% end %>
     <% end %>
 </p>
