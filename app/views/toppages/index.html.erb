@@ -2,6 +2,17 @@
 ログイン完了ユーザー：<%= current_user.name %>
 <p>views/toppages/index.html.erb</p>
 
+<p>
+    <strong>Posts:</strong><br>
+    <% @nelcoposts.each do |image| %>
+      <% if @nelcopost.image.present? %>
+        <%= image_tag @nelcopost.image.url %>
+      <% else %>
+        <%= image_tag "nelco_post.jpg" %>
+      <% end %>
+    <% end %>
+</p>
+
 
 <% else %>
   <% content_for :cover do %>

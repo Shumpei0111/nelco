@@ -1,0 +1,32 @@
+■render _form.html.erb ここから■
+
+<%= form_for(@nelcopost) do |f| %>
+  <% if @nelcopost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nelcopost.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @nelcopost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="field">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
+
+<div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+</div>
+
+<div class="actions">
+  <%= f.submit "投稿する" %>
+</div>
+
+<% end %>
+
+■render _form.html.erb ここまで■

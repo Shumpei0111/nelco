@@ -1,3 +1,6 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
+ログインユーザー名：<%= current_user.name %>
+
+<p><%= render "nelcoposts/form", nelcoposts: @nelcopost %></p>
