@@ -14,17 +14,17 @@
   <% end %>
 
 <div class="field">
-  <%= f.label :title %>
+  <%= f.label :タイトルを入力してください（20文字まで） %><br>
   <%= f.text_field :title %>
 </div>
 
 <div class="field">
-  <%= f.label :image %>
+  <%= f.label :画像 %>
   <%= f.file_field :image %>
 </div>
-
+<br>
 <div class="actions">
-  <%= f.submit "投稿する" %>
+  <%= f.submit "画像を追加する" %>
 </div>
 
 <% end %>

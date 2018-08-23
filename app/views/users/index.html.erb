@@ -2,4 +2,13 @@
 <p>Find me in app/views/users/index.html.erb</p>
 
 <p>Users#showで投稿完了したら、Users#indexに遷移します。また、このページにはすべてのユーザーの投稿が見れるようにしたいです。</p>
-<%= image_tag image.all %>
+<p><%= link_to current_user.name, user_path(current_user) %></p>
+
+<% @nelcoposts.each do |nelcopost| %>
+  <%=image_tag nelcopost.image.url %><br>
+    title: <%= nelcopost.title %><br>
+    posted by: <%= link_to @user.name, users_path(params[:id]) %><br>
+    <% if current_user == @nelcopost.user %>
+      <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
+    <% end %>
+<% end %>

@@ -26,7 +26,7 @@ class NelcopostsController < ApplicationController
   end
   
   def correct_user
-    @nelcopost = current_user.nelcoposts.find_by(id: params[:id])
+    @nelcopost = current_user.nelcopost.find_by(id: params[:id])
     unless @nelcopost
       redirect_to users_path
     end

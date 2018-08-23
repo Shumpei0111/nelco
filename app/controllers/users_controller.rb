@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def index
+    @user = current_user
     @users = User.all.page(params[:page])
+    @nelcopost = current_user.nelcopost.build
+    @nelcoposts = current_user.nelcopost.order("created_at DESC").page(params[:page])
   end
 
   def show

@@ -1,29 +1,29 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
 <% if logged_in? %>
 ログインユーザー名：<%= current_user.name %>
+
+<p><%= link_to "Users#index", users_path %></p>
 
 
 <p><%= render "nelcoposts/form", nelcoposts: @nelcopost %></p>
 
 <p>
-    <% @nelcoposts.each do |image| %>
-      <% if image.present? %>
+    <% @nelcoposts.each do |nelcopost| %>
+      <% if nelcopost.image.present? %>
         <%#= image.inspect %>
-        <%=image_tag image.image.url %><br>
-        title: <%= image.title %><br>
-        posted by: <%= @user.name %><br>
-        <%# if current_user == @nelcopost.user %>
-          <%#= link_to "Delete", @nelcopost, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
-        <%# end %>
+        <%=image_tag nelcopost.image.url %><br>
+        title: <%= nelcopost.title %><br>
+        posted by: <%= link_to @user.name, user_path %><br>
+        <% if current_user == @nelcopost.user %>
+          <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
+        <% end %>
       <% else %>
         <%= image_tag "nelco_post.jpg" %><br>
-        title: <%= image.title %><br>
-        posted by: <%= @user.name %><br>
-        <%# if current_user == @nelcopost.user %>
-          <%#= link_to "Delete", @nelcopost, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
-        <%# end %>
+        title: <%= nelcopost.title %><br>
+        posted by: <%= link_to @user.name, user_path %><br>
+        <% if current_user == @nelcopost.user %>
+          <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
+        <% end %>
       <% end %>
     <% end %>
 </p>
