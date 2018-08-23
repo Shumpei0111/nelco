@@ -1,6 +1,31 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
+<% if logged_in? %>
 ログインユーザー名：<%= current_user.name %>
 
+
 <p><%= render "nelcoposts/form", nelcoposts: @nelcopost %></p>
+
+<p>
+    <% @nelcoposts.each do |image| %>
+      <% if image.present? %>
+        <%#= image.inspect %>
+        <%=image_tag image.image.url %><br>
+        title: <%= image.title %><br>
+        posted by: <%= @user.name %><br>
+        <%# if current_user == @nelcopost.user %>
+          <%#= link_to "Delete", @nelcopost, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
+        <%# end %>
+      <% else %>
+        <%= image_tag "nelco_post.jpg" %><br>
+        title: <%= image.title %><br>
+        posted by: <%= @user.name %><br>
+        <%# if current_user == @nelcopost.user %>
+          <%#= link_to "Delete", @nelcopost, method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
+        <%# end %>
+      <% end %>
+    <% end %>
+</p>
+
+<% end %>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     if logged_in?
-     @user = current_user
+      @user = current_user
       @nelcopost = current_user.nelcopost.build # form_for 用
       @nelcoposts = current_user.nelcopost.order("created_at DESC").page(params[:page])
     end  
