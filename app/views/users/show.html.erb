@@ -1,22 +1,42 @@
-<h1>Users#show</h1>
+ここはUsers#show
+<p><%= link_to "Users#index", users_path %>へ</p>
+
 <% if logged_in? %>
-ログインユーザー名：<%= current_user.name %>
 
-<p><%= link_to "Users#index", users_path %></p>
+<div class="col-xs-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">ログインユーザー：<%= @user.name %></h4>
+    </div>
+    <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
+  </div>
+</div>
 
 
-<p><%= render "nelcoposts/form", nelcoposts: @nelcopost %></p>
+<div class="postform">
+  <%= render "nelcoposts/form", nelcoposts: @nelcopost %>
+</div>
 
-<p>
+
+<div class="row">
+  <div class="col-md-3">
+    
     <% @nelcoposts.each do |nelcopost| %>
       <% if nelcopost.image.present? %>
         <%#= image.inspect %>
-        <%=image_tag nelcopost.image.url %><br>
-        title: <%= nelcopost.title %><br>
-        posted by: <%= link_to @user.name, user_path %><br>
-        <% if current_user == @nelcopost.user %>
-          <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
-        <% end %>
+      <div class="image_posts">
+        <div class="col-md-4 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <%=image_tag nelcopost.image.url %>
+            </div>
+              title: <%= nelcopost.title %><br>
+              posted by: <%= link_to @user.name, user_path %><br>
+              <% if current_user == @nelcopost.user %>
+              <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %>
+            <% end %>
+          </div>
+        </div>
       <% else %>
         <%= image_tag "nelco_post.jpg" %><br>
         title: <%= nelcopost.title %><br>
@@ -26,6 +46,8 @@
         <% end %>
       <% end %>
     <% end %>
-</p>
+    
+  </div>
+</div>
 
 <% end %>

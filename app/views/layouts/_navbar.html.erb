@@ -13,7 +13,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
-            <li><button class="btn btn-info">投稿する</button></li>
+            <li><%#= link_to "投稿する", user_path(current_user), class: "btn btn-info" %></li>
             <li><%= link_to current_user.name, user_path(current_user) %></li>
             <li><%= link_to "ログアウト", logout_path, method: :delete, class: "btn btn-xs" %></li>
           <% else %>
