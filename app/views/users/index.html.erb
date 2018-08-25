@@ -1,13 +1,72 @@
 <h1>Users#index</h1>
 
-<p>Users#showで投稿完了したら、Users#indexに遷移します。また、このページにはすべてのユーザーの投稿が見れるようにしたいです。</p>
+<p>Users#showで投稿完了したら、Users#indexに遷移します。また、このページにはフォローしているユーザーの投稿が見れるようにしたいです。</p>
 <p><%#= link_to current_user.name, user_path(current_user) %></p>
 
-<% @nelcoposts.each do |nelcopost| %>
-  <%=image_tag nelcopost.image.url %><br>
-    title: <%= nelcopost.title %><br>
-    posted by: <%= link_to @user.name, users_path(params[:id]) %><br>
-    <% if current_user == @nelcopost.user %>
-      <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %><br>
-    <% end %>
+<% if logged_in? %>
+
+
+<div class="col-ms-2">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="panel-title text-center"><%#= @user.name %><%= link_to current_user.name, user_path(current_user) %></div>
+    </div>
+    <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
+    <div class="panel-footer text-center">
+      <%= link_to "投稿する", user_path(current_user), class: "btn btn-info" %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="row">
+  <div class="col-xs-6 col-md-4">
+    
+    <% @nelcoposts.each do |nelcopost| %>
+      <% if nelcopost.image.present? %>
+        <%#= image.inspect %>
+      <div class="image_posts">
+        <div class="col-ms-4">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <%= image_tag nelcopost.image.url %>
+            </div>
+            <div class="panel-body text-center">
+              title: <%= nelcopost.title %><br>
+              posted by: <%= link_to nelcopost.user.name, user_path(nelcopost.user) %><br>
+              <% if current_user == @nelcopost.user %>
+              <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+        
+      <% else %>
+      <div class="image_posts">
+        <div class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <%= image_tag "nelco_post.jpg" %>
+              </div>
+              <div class="panel-body text-center">
+                title: <%= nelcopost.title %><br>
+                posted by: <%= link_to @users.name %><br>
+                  <% if current_user == @nelcopost.user %>
+                  <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %>
+                <% end %>
+              </div>  
+              <% end %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+     </div>
+  </div>
+</div>
+
 <% end %>
+
+<%= paginate @nelcoposts %>
