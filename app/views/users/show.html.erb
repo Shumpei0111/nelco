@@ -23,11 +23,14 @@
      <%= render "relationships/follow_button", user: @user %>
    </td>
    <td>
-     <%= link_to "フォロー", followings_user_path %>：<%= @user.followings.count %>
-    </td>
-    <td>
+     ポスト：<%= @user.nelcopost.count %>
+   </td>
+   <td>
+     フォロー：<%= link_to @user.followings.count, followings_user_path %>
+   </td>
+   <td>
       <a href="#">フォロワー</a>：<%= @user.followers.count %>
-    </td>
+   </td>
   </tr>
 </table>
 
