@@ -2,14 +2,19 @@ class NelcopostsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
   
+  def new
+    @nelcopost = current_user.nelcopost.build
+    @nelcoposts = current_user.nelcopost.order("created_at DESC").page(params[:page])
+  end
+  
   def create
     @nelcopost = current_user.nelcopost.build(nelcopost_params)
     if @nelcopost.save
       flash[:success] = "投稿しました"
-      redirect_to user_path(:id)
+      redirect_to user_url(current_user)
     else
       flash.now[:danger] = "投稿できませんでした"
-      render "users/show"
+      render "users/index"
     end
   end
 

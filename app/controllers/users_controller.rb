@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :followings, :followers]
   
   def index
-    @nelcopost = current_user.nelcopost.build
-    @nelcoposts = current_user.nelcopost.order("created_at DESC").page(params[:page])
   end
 
   def show

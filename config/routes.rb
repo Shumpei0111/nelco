@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :nelcoposts, only: [:create, :destroy]
+  resources :nelcoposts, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
 end
