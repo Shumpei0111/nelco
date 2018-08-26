@@ -2,15 +2,14 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :followings, :followers]
   
   def index
-    @users = User.page(params[:page])
     @nelcopost = current_user.nelcopost.build
     @nelcoposts = current_user.nelcopost.order("created_at DESC").page(params[:page])
   end
 
   def show
-      @user = current_user
+      @user = User.find(params[:id])
       @nelcopost = current_user.nelcopost.build # form_for 用
-      @nelcoposts = current_user.nelcopost.order("created_at DESC").page(params[:page])
+      @nelcoposts = @user.nelcopost.order("created_at DESC").page(params[:page])
   end
   
   def new

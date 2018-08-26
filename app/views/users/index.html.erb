@@ -1,5 +1,4 @@
 <h1><%= link_to current_user.name, user_path(current_user) %></h1>
 
-<% if logged_in? %>
+
 <%= render "nelcoposts/form", nelcoposts: @nelcopost %>
-<% end %>
