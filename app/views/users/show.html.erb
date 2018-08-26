@@ -23,19 +23,17 @@
      <%= render "relationships/follow_button", user: @user %>
    </td>
    <td>
-     <%= link_to "フォロー", followings_user_path %>
+     <%= link_to "フォロー", followings_user_path %>：<%= @user.followings.count %>
     </td>
     <td>
-      <a href="#">
-        フォロワー<%= @counts_followers %>
-      </a>
+      <a href="#">フォロワー</a>：<%= @user.followers.count %>
     </td>
   </tr>
 </table>
 
 <div class="row">
   <div class="col-ms-3">
-    投稿したもの
+    <%= @user.name %>さんの投稿
     <% @nelcoposts.each do |nelcopost| %>
       <% if nelcopost.image.present? %>
         <%#= image.inspect %>
