@@ -1,0 +1,5 @@
+<%#= @count_followings %>
+
+<% @user.followings.each do |user| %>
+  <%= link_to user.name, user_path(user [:id]) %>
+<% end %>

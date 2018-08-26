@@ -6,7 +6,7 @@ class NelcopostsController < ApplicationController
     @nelcopost = current_user.nelcopost.build(nelcopost_params)
     if @nelcopost.save
       flash[:success] = "投稿しました"
-      redirect_to users_path
+      redirect_to user_path(:id)
     else
       flash.now[:danger] = "投稿できませんでした"
       render "users/show"

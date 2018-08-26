@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   
   include SessionsHelper
   
+  def counts(user)
+    @count_nelcoposts = user.nelcopost.count
+    @count_followings = user.followings.count
+    @count_followers = user.followers.count
+  end
+  
   private
   
   def require_user_logged_in
