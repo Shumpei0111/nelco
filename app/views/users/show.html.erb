@@ -1,8 +1,8 @@
 ここはUsers#show
 
-<table>
+<table border="0" width="100%" style="table-layout: fixed;">
   <tr>
-    <td>
+    <td rowspan="3">
      <div class="col-ms-2">
       <div class="panel panel-primary">
         <div class="panel-heading">
@@ -12,31 +12,33 @@
         </div>
           <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
       </div>
-    </div>
+     </div>
     </td>
-   <td>
+  </tr>
+  <tr>
+    <td colspan="3">
+    </td>
+  <tr>
+    <td colspan="3">
      <% if current_user == @user %>
      <%= link_to "投稿する", new_nelcopost_path(current_user), class: "btn btn-info" %>
      <% end %>
-   </td>
-   <td>
      <%= render "relationships/follow_button", user: @user %>
-   </td>
-   <td>
-     ポスト：<%= @user.nelcopost.count %>
-   </td>
-   <td>
-     フォロー：<%= link_to @user.followings.count, followings_user_path %>
-   </td>
-   <td>
-      <a href="#">フォロワー</a>：<%= @user.followers.count %>
-   </td>
+    </td>
+  </tr>
+  <tr>
+     <td></td>
+     <td>ポスト：<%= @user.nelcopost.count %></td>
+     <td>フォロー：<%= link_to @user.followings.count, followings_user_path %></td>
+     <td>フォロワー：<%= link_to @user.followers.count, followers_user_path %></td>
   </tr>
 </table>
+      
 
+<!-- 投稿ここから　-->
 <div class="row">
   <div class="col-ms-3">
-    <%= @user.name %>さんの投稿
+    <div class="post_name"><%= @user.name %>さんの投稿</div>
     <% @nelcoposts.each do |nelcopost| %>
       <% if nelcopost.image.present? %>
         <%#= image.inspect %>
@@ -44,13 +46,13 @@
           <div class="col-md-3">
             <div class="panel panel-default">
               <div class="panel-heading text-center">
-                  <%= image_tag nelcopost.image.url %>
+                  <p class="text-left"><%= image_tag nelcopost.image.url %></p>
               </div>
               <div class="panel-body text-center">
-                title: <%= nelcopost.title %><br>
-                posted by: <%= link_to @user.name, user_path %>
+                <p class="text-left"><%= link_to @user.name, user_path %><br>
+                <span class="fontbold">title: <%= nelcopost.title %></span></p>
               <% if current_user == @user %>
-                <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %>
+                <p class="text-right"><%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %></p>
               <% end %>
               </div>
             </div>
@@ -61,11 +63,11 @@
         <div class="col-md-3">
           <div class="panel panel-default">
             <div class="panel-heading text-center">
-              <%= image_tag nelco_post.jpg %>
+              <%= image_tag "nelco_post.jpg" %>
               </div>
               <div class="panel-body text-center">
+                posted by: <%= link_to @user.name, user_path %><br>
                 title: <%= nelcopost.title %><br>
-                posted by: <%= link_to @user.name, user_path %>
                   <% if current_user == @user %>
                   <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %>
                 <% end %>

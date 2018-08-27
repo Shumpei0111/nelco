@@ -2,8 +2,9 @@
 ログイン完了ユーザー：<%= current_user.name %>
 <p>views/toppages/index.html.erb</p>
 
-
-
+<% followings_users_posts.each do |followings_users_post| %>
+<%= image_tag nelcopost.image.url %>
+<% end %>
 
 <% else %>
   <% content_for :cover do %>

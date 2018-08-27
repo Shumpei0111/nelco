@@ -84,3 +84,11 @@ body  {
   width: 100%;
 }  
 
+span.fontbold  {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.post_name  {
+  margin: 20px;
+}
