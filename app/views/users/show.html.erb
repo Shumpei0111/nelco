@@ -50,7 +50,8 @@
               </div>
               <div class="panel-body text-center">
                 <p class="text-left"><%= link_to @user.name, user_path %><br>
-                <span class="fontbold">title: <%= nelcopost.title %></span></p>
+                <span class="fontbold">title: <%= nelcopost.title %></span>
+                <%= render "favorites/fav_button", nelcopost: nelcopost %></p>
               <% if current_user == @user %>
                 <p class="text-right"><%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %></p>
               <% end %>

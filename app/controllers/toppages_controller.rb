@@ -2,7 +2,6 @@ class ToppagesController < ApplicationController
   
   def index
     if logged_in?
-      #debugger
       @user = User.find_by(id: params[:id])
       @nelcopost = current_user.nelcopost.build
       user_ids = current_user.followings.pluck(:id) + [current_user.id]

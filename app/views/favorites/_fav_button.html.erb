@@ -1,0 +1,11 @@
+<% if nelcopost.faving?(current_user) %>
+  <%= form_for(nelcopost.favorites.find_by(user_id: current_user.id), html: { method: :delete}) do |f| %>
+    <%= hidden_field_tag :nelcopost_id, nelcopost.id %>
+    <%= f.submit "いいね", class: "btn btn-success btn-sm" %>
+  <% end %>
+<% else %>
+  <%= form_for(nelcopost.favorites.build) do |f| %>
+    <%= hidden_field_tag :nelcopost_id, nelcopost.id %>
+    <%= f.submit "いいね", class: "btn btn-outline-success btn-sm" %>
+  <% end %>
+<% end %>

@@ -3,8 +3,7 @@
 <p>views/toppages/index.html.erb</p>
 
 <% @followings_users_posts.each do |followings_users_post| %>
-  <%= image_tag followings_users_post.image.url %>
-  <%#= link_to @user, user_path %>
+  <%= link_to (image_tag followings_users_post.image.url), user_path(followings_users_post [:user_id]) %>
 <% end %>
 
 <%= paginate @nelcoposts %>
