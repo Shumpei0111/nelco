@@ -1,1 +1,7 @@
-<p>favorites.html<%= @favorites %>></p>
+<p>favorites.html</p>
+
+<%= @favorites.each do |favorite| %>
+  <%= image_tag favorite.image.url %>
+  <%= link_to @user.name, user_path(favorite [:user_id]) %>
+  <%= favorite.title %>
+<% end %>
