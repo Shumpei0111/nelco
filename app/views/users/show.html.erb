@@ -1,6 +1,6 @@
 
 
-<table border="1" width="100%" style="table-layout: fixed;">
+<table border="0" width="100%" style="table-layout: fixed;">
   <tr>
     <td rowspan="3">
      <div class="col-ms-2">
@@ -19,20 +19,22 @@
     </td>
   </tr>
   <tr>
-    <td colspan="3">
+    <td colspan="4">
     </td>
   <tr>
-    <td colspan="3">
-     <% if current_user == @user %>
-     <%= link_to "投稿する", new_nelcopost_path(current_user), class: "btn btn-info" %>
-     <% end %>
+    <td colspan="4">
     </td>
   </tr>
   <tr>
-     <td></td>
-     <td>ポスト：<%= @user.nelcopost.count %></td>
-     <td>フォロー：<%= link_to @user.followings.count, followings_user_path %></td>
-     <td>フォロワー：<%= link_to @user.followers.count, followers_user_path %></td>
+     <td>
+       <% if current_user == @user %>
+         <%= link_to "投稿する", new_nelcopost_path(current_user), class: "btn btn-info btn-block" %>
+       <% end %>
+     </td>
+     <td class="count">ポスト：<%= @user.nelcopost.count %></td>
+     <td class="count">フォロー中：<%= link_to @user.followings.count, followings_user_path %></td>
+     <td class="count">フォロワー：<%= link_to @user.followers.count, followers_user_path %></td>
+     <td class="count">いいね：<%= link_to "いいね", favorites_user_path %></td>
   </tr>
 </table>
       
