@@ -34,7 +34,7 @@
      <td class="count">ポスト：<%= @user.nelcopost.count %></td>
      <td class="count">フォロー中：<%= link_to @user.followings.count, followings_user_path %></td>
      <td class="count">フォロワー：<%= link_to @user.followers.count, followers_user_path %></td>
-     <td class="count">いいね：<%= link_to "いいね", favorites_user_path %></td>
+     <td class="count">いいね：<%= link_to @user.favorites.count, favorites_user_path %></td>
   </tr>
 </table>
       

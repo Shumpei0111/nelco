@@ -6,6 +6,6 @@
 <% else %>
   <%= form_for(nelcopost.favorites.build) do |f| %>
     <%= hidden_field_tag :nelcopost_id, nelcopost.id %>
-    <%= f.submit "いいね", class: "btn btn-outline-success btn-sm" %>
+    <%= f.submit "いいね", class: "btn btn-default btn-sm" %>
   <% end %>
 <% end %>
