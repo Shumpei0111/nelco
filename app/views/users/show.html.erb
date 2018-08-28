@@ -1,6 +1,6 @@
-ここはUsers#show
 
-<table border="0" width="100%" style="table-layout: fixed;">
+
+<table border="1" width="100%" style="table-layout: fixed;">
   <tr>
     <td rowspan="3">
      <div class="col-ms-2">
@@ -10,7 +10,10 @@
             <%= @user.name %>
           </div>
         </div>
-          <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
+          <div class="panel-body text-center">
+            <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
+            <%= render "relationships/follow_button", user: @user %>
+          </div>
       </div>
      </div>
     </td>
@@ -23,7 +26,6 @@
      <% if current_user == @user %>
      <%= link_to "投稿する", new_nelcopost_path(current_user), class: "btn btn-info" %>
      <% end %>
-     <%= render "relationships/follow_button", user: @user %>
     </td>
   </tr>
   <tr>
@@ -50,8 +52,10 @@
               </div>
               <div class="panel-body text-center">
                 <p class="text-left"><%= link_to @user.name, user_path %><br>
-                <span class="fontbold">title: <%= nelcopost.title %></span>
-                <%= render "favorites/fav_button", nelcopost: nelcopost %></p>
+                <span class="fontbold">title: <%= nelcopost.title %></span></p>
+                <div class="text-left">
+                  <%= render "favorites/fav_button", nelcopost: nelcopost %>
+                </div>
               <% if current_user == @user %>
                 <p class="text-right"><%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %></p>
               <% end %>
