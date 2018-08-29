@@ -1,8 +1,4 @@
-<div class="row">
-    <div class="col-md-3">
-      <h3>フォロー</h3>
-        <% @user.followings.each do |user| %>
-          <%= link_to user.name, user_path(user [:id]) %>
-        <% end %>
-    </div>
-</div>
+<h3>フォローリスト</h3>
+  <% @user.followings.each do |user| %>
+    name：<%= link_to user.name, user_path(user [:id]) %>さん<br>
+  <% end %>

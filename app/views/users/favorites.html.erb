@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-ms-3">
       <h3>お気に入り</h3>
-        <%= @favorites.each do |favorite| %>
+        <% @favorites.each do |favorite| %>
           <%= link_to (image_tag favorite.image.url), user_path(favorite [:user_id]) %>
         <% end %>
     </div>
