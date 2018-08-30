@@ -9,7 +9,7 @@
   <%= link_to (image_tag followings_users_post.image.url), user_path(followings_users_post [:user_id]) %>
 <% end %>
 
-<%= paginate @nelcoposts %>
+<%= paginate @nelcopost_pages %>
 
 <% else %>
   <% content_for :cover do %>
