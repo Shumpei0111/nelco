@@ -9,4 +9,10 @@ class ToppagesController < ApplicationController
       @nelcoposts = current_user.nelcopost.order("created_at DESC").page(params[:page])
     end
   end
+  
+  def favorite
+    @ranking_counts = Favorite.ranking
+    @nelcoposts = Nelcopost.find(@ranking_counts.keys)
+  end
+  
 end

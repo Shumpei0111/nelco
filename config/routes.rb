@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
   
+  get "rankings/favorite", to: "rankings#favorite"
+  
   resources :nelcoposts, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]

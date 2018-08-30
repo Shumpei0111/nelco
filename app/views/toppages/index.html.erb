@@ -1,4 +1,7 @@
 <% if logged_in? %>
+
+<%= render "rankings/favorite", favorites: @favorites %><br>
+
 ログイン完了ユーザー：<%= current_user.name %>
 <p>views/toppages/index.html.erb</p>
 
