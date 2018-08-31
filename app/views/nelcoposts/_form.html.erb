@@ -5,11 +5,11 @@
 	<div class="panel-heading">
 		投稿する
 	</div>
-	<div class="panel-body">
+	<div class="panel-body post_form">
 		<%= form_for(@nelcopost) do |f| %>
   <% if @nelcopost.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@nelcopost.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <div id="error_explanation" class="post_error">
+      <h3><%= pluralize(@nelcopost.errors.count, "エラー") %> ／以下の理由で投稿できませんでした</h3>
 
       <ul>
       <% @nelcopost.errors.full_messages.each do |message| %>
@@ -18,21 +18,20 @@
       </ul>
     </div>
   <% end %>
-
+  
 <div class="field">
-  <%= f.label :タイトルを入力してください（20文字まで） %><br>
+  <%= f.label :タイトルを入力してください %><small> （20文字まで）</small><br>
   <%= f.text_field :title %>
 </div>
-
+<br>
 <div class="field">
-  <%= f.label :画像 %>
+  <%= f.label :画像 %><small>　(jpg, jpeg, gif, pngが投稿可能です)</small>
   <%= f.file_field :image %>
 </div>
 <br>
 <div class="actions">
   <%= f.submit "画像を追加する" %>
 </div>
-
 <% end %>
 	</div>
 </div>

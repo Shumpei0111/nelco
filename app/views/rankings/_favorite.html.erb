@@ -1,10 +1,13 @@
-<table>
-<h2>Favorite Ranking</h2>
-<%# if @nelcoposts.present? %>
-  <% @nelcoposts.each_with_index do |nelcopost, index| %>
-    <%= index+1 %>位： <%= @ranking_counts[nelcopost.id] %>いいね
-    <%= link_to (image_tag nelcopost.image.url(:thumb)), user_path(nelcopost [:user_id]) %>
-    <%#= link_to (image_tag nelcopost.image.thumb.url), user_path(nelcopost [:user_id]) %>
-  <% end %>
-<%# end %>
-</table>
+<div class="row ranking_field">
+  <div class="col-md-12 col-xs-2">
+   <h2>Favorite Ranking</h2>
+    <% if @nelcoposts.present? %>
+      <% @nelcoposts.each_with_index do |nelcopost, index| %>
+      <div class="rank_in_posts">
+        <%= index+1 %>位： <%= @ranking_counts[nelcopost.id] %>いいね
+        <%= link_to (image_tag nelcopost.image.thumb.url), user_path(nelcopost [:user_id]) %>
+      </div>
+       <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,12 +1,9 @@
 <% if logged_in? %>
 
-<%= render "rankings/favorite", favorites: @favorites %><br>
-
-ログイン完了ユーザー：<%= current_user.name %>
-<p>views/toppages/index.html.erb</p>
-
+  <%= render "rankings/favorite", favorites: @favorites %><br>
+<h3>すべての投稿</h3>
 <% @followings_users_posts.each do |followings_users_post| %>
-  <%= link_to (image_tag followings_users_post.image.url), user_path(followings_users_post [:user_id]) %>
+  <%= link_to (image_tag followings_users_post.image.url), user_path(followings_users_post [:user_id] ) %>
 <% end %>
 
 <%= paginate @nelcopost_pages %>

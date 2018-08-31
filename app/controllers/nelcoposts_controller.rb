@@ -14,7 +14,7 @@ class NelcopostsController < ApplicationController
       redirect_to user_url(current_user)
     else
       flash.now[:danger] = "投稿できませんでした"
-      render "users/index"
+      render new_nelcopost_path
     end
   end
 

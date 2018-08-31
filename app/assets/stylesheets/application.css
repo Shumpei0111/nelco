@@ -34,7 +34,7 @@ body  {
 .navbar-header img  {
   margin-top: 10px;
   margin-bottom: 10px;
-  height: 100px;
+  height: 70px;
 }
 
 .navbar-right  {
@@ -73,11 +73,19 @@ body  {
 }
 
 .panel-default>.panel-heading  {
-  height: 200;
+  height: 300px;
+  width: 100%;
+  /* background-color: #ffffff; */
+  border-bottom:  solid transparent;
+}
+
+.panel-default>.panel-body  {
+  height: 150px;
   width: 100%;
   background-color: #ffffff;
   border-bottom:  solid transparent;
 }
+
 
 .panel-default>.panel-heading img  {
   height: 100%;
@@ -109,3 +117,27 @@ p  {
   margin: 0 0 5px;
 }
 
+.panel-body {
+    padding: 0 15px;
+}
+
+.share_button  {
+  margin: 3px 0;
+}
+
+.post_error  {
+  background-color: #fffacd;
+}
+
+.post_form  {
+  margin: 30px 30px;
+}
+
+.ranking_field  {
+  background-color: #ffedf8;
+  padding: 0 0 20px 10px;
+}
+
+.rank_in_posts  {
+  margin: 10px 0px 0px 70px;
+}

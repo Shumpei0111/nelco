@@ -57,6 +57,9 @@
                 <span class="fontbold">タイトル: <%= nelcopost.title %></span>
                 <div class="text-left">
                   <%= render "favorites/fav_button", nelcopost: nelcopost %>
+                  <div class="share_button">
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  </div>
                 </div>
               <% if current_user == @user %>
                 <p class="text-right"><%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %></p>
@@ -66,21 +69,29 @@
           </div>
         
       <% else %>
-      <div class="image_posts">
-        <div class="col-md-3">
-          <div class="panel panel-default">
-            <div class="panel-heading text-center">
-              <%= image_tag "nelco_post.jpg" %>
+        <div class="image_posts">
+          <div class="col-md-3">
+            <div class="panel panel-default">
+              <div class="panel-heading text-center">
+                  <p class="text-left"><%= image_tag "nelco_post.jpg" %></p>
               </div>
               <div class="panel-body text-center">
-                posted by: <%= link_to @user.name, user_path %><br>
-                title: <%= nelcopost.title %><br>
-                  <% if current_user == @user %>
-                  <%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %>
+                <p class="text-left"><%= link_to @user.name, user_path %><br>
+                <span class="fontbold">タイトル: <%= nelcopost.title %></span>
+                <div class="text-left">
+                  <%= render "favorites/fav_button", nelcopost: nelcopost %>
+                  <div class="share_button">
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                  </div>
+                </div>
+                <% if current_user == @user %>
+                  <p class="text-right"><%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %></p>
                 <% end %>
-              </div>  
-              <% end %>
+              </div>
+            </div>
+          </div>
             <% end %>
+          <% end %>
             </div>
           </div>
         </div>
