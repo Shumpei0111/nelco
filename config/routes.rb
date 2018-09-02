@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   
   get "rankings/favorite", to: "rankings#favorite"
   
+  get "terms-of-service", to: "policy#index"
+  
   resources :nelcoposts, only: [:new, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
