@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
       @nelcopost = current_user.nelcopost.build # form_for 用
-      @nelcoposts = @user.nelcopost.order("created_at DESC").page(params[:page])
+      @nelcoposts = @user.nelcopost.order("created_at DESC").page(params[:page]).per(20)
   end
   
   def new

@@ -1,4 +1,7 @@
 <h2>すべての投稿一覧</h2>
+<% unless logged_in? %>
+  <p>詳細は<%= link_to "ログイン", login_path %>後見ることができます。新規登録は<%= link_to "こちら", signup_path %></p>
+<% end %>
 <br>
 <br>
 <% @nelcoposts.each do |nelcopost| %>
@@ -8,3 +11,5 @@
     <%= link_to (image_tag "nelco_post.jpg"), user_path(nelcopost [:user_id] ) %>
   <% end %>
 <% end %>
+
+<%= paginate @nelcoposts %>
