@@ -42,7 +42,13 @@
 <!-- 投稿ここから　-->
 <div class="row">
   <div class="col-ms-3">
-    <div class="post_name"><%= @user.name %>さんの投稿</div>
+    <table class="post_name">
+      <tr>
+        <td>
+          <div class="post_name"><%= @user.name %>さんの投稿</div>
+        </td>
+      </tr>
+    </table>
     <% @nelcoposts.each do |nelcopost| %>
       <% if nelcopost.image.present? %>
         <%#= image.inspect %>

@@ -9,7 +9,7 @@
 		<%= form_for(@nelcopost) do |f| %>
   <% if @nelcopost.errors.any? %>
     <div id="error_explanation" class="post_error">
-      <h3><%= pluralize(@nelcopost.errors.count, "エラー") %> ／以下の理由で投稿できませんでした</h3>
+      <p><%= pluralize(@nelcopost.errors.count, "つのエラー") %> | 以下の理由で投稿できませんでした</p>
 
       <ul>
       <% @nelcopost.errors.full_messages.each do |message| %>

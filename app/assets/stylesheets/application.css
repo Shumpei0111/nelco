@@ -141,3 +141,8 @@ p  {
 .rank_in_posts  {
   margin: 10px 0px 0px 70px;
 }
+
+.post_name  {
+  background-color: skyblue;
+  width: 97%;
+}
