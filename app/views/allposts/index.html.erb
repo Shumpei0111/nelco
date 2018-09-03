@@ -3,10 +3,8 @@
 <br>
 <% @nelcoposts.each do |nelcopost| %>
   <% if nelcopost.image.url.present? %>
-    <%= image_tag nelcopost.image.url %>
-    <%#= link_to (image_tag nelcopost.image.url), user_path(nelcopost [id: :user_id] ) %>
+    <%= link_to (image_tag nelcopost.image.url), user_path(nelcopost [:user_id]) %>
   <% else %>
-    <%= image_tag "nelco_post.jpg" %>
-    <%#= link_to (image_tag "nelco_post.jpg"), user_path(nelcopost [id: :user_id] ) %>
+    <%= link_to (image_tag "nelco_post.jpg"), user_path(nelcopost [:user_id] ) %>
   <% end %>
 <% end %>
