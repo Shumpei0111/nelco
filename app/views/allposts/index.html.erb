@@ -1,0 +1,12 @@
+<h2>すべての投稿一覧</h2>
+<%= link_to "＞Back", user_path(current_user) %><br>
+<br>
+<% @nelcoposts.each do |nelcopost| %>
+  <% if nelcopost.image.url.present? %>
+    <%= image_tag nelcopost.image.url %>
+    <%#= link_to (image_tag nelcopost.image.url), user_path(nelcopost [id: :user_id] ) %>
+  <% else %>
+    <%= image_tag "nelco_post.jpg" %>
+    <%#= link_to (image_tag "nelco_post.jpg"), user_path(nelcopost [id: :user_id] ) %>
+  <% end %>
+<% end %>
