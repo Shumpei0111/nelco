@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show, :followings, :followers]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :followings, :followers]
   
   def index
   end
@@ -24,6 +24,11 @@ class UsersController < ApplicationController
       flash.now[:danger] = "ユーザー登録できませんでした"
       render :new
     end
+  end
+  
+  def edit
+    #debugger
+    @user = User.find_by(params[:user_id])
   end
   
   def followings
