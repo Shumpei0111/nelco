@@ -1,13 +1,15 @@
 <p>現在のアイコン</p>
 
+
+
 <%= form_for(@user) do |f| %> 
-  <% if @user.image? %>
-    <%= image_tag @user.image.url %>
+  <% if @user.icon? %>
+    <%= image_tag @user.icon.url %>
   <% else %>
     <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
   <% end %>
     <%= f.label :画像 %><small>　(jpg, jpeg, gif, pngが投稿可能です)</small>
-    <%= f.file_field :image %>
+    <%= f.file_field :icon, id: :user_icon %>
     <br>
     <%= f.submit "画像を追加する" %>
 <% end %>

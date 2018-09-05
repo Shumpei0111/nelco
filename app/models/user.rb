@@ -6,7 +6,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   
-  mount_uploader :image, ImageUploader
+  mount_uploader :icon, IconUploader
   
   has_many :nelcopost
   has_many :relationships

@@ -11,7 +11,7 @@
           <div class="panel-body text-center">
             <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
             <% if current_user == @user %>
-              <%= link_to "プロフィール画像を変更", icon_upload_path(@user) %>
+              <%= link_to "プロフィール画像を変更", icon_upload_path(current_user) %>
             <% end %>
             <%= render "relationships/follow_button", user: @user %>
           </div>
