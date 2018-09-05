@@ -9,7 +9,11 @@
           </div>
         </div>
           <div class="panel-body text-center">
-            <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
+            <% if @user.icon.url.present? %>
+              <%= image_tag @user.icon.url %>
+            <% else %>
+              <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
+            <% end %>
             <% if current_user == @user %>
               <%= link_to "プロフィール画像を変更", icon_upload_path(current_user) %>
             <% end %>

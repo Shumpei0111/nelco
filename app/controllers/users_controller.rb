@@ -27,18 +27,18 @@ class UsersController < ApplicationController
   end
   
   def edit
-    #debugger
     @user = User.find_by(params[:user_id])
   end
   
   def update
     @user = User.find_by(params[:user_id])
-    if @user.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to @user
-    else
-      render 'edit'
-    end
+      if current_user.update_attributes(user_params)
+        flash[:success] = "更新しました"
+        redirect_to user_path(current_user)
+      else
+        flash.now[:danger] = "失敗しました"
+        redirect_back(fallback_location: edit_user_path)
+      end
   end
   
   def followings
