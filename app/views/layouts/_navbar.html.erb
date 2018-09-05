@@ -15,8 +15,8 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
-            <li><%= link_to "すべての投稿を見る", allposts_path %></li>
-            <li><%= link_to current_user.name, user_path(current_user) %></li>
+            <li><%= link_to "すべての投稿を見る", allposts_path, class: "btn" %></li>
+            <li><%= link_to current_user.name, user_path(current_user), class: "btn btn-xs" %></li>
             <li><%= link_to "ログアウト", logout_path, method: :delete, class: "btn btn-xs" %></li>
           <% else %>
             <li><%= link_to "ログイン", login_path, class: "btn btn-primary btn-block" %></li>

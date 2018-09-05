@@ -8,14 +8,14 @@
             <%= @user.name %>
           </div>
         </div>
-          <div class="panel-body text-center">
+          <div class="panel-body-icon">
             <% if @user.icon.url.present? %>
               <%= image_tag @user.icon.url %>
             <% else %>
               <img class="media-object img-rounded img-responsive" src="/images/nelco-icon.jpg" alt="icon">
             <% end %>
             <% if current_user == @user %>
-              <%= link_to "プロフィール画像を変更", icon_upload_path(current_user) %>
+              <p class="text-center"><small><%= link_to "プロフィール画像を変更", icon_upload_path(current_user) %></small></p>
             <% end %>
             <%= render "relationships/follow_button", user: @user %>
           </div>
@@ -87,7 +87,8 @@
                   <p class="text-left"><%= image_tag "nelco_post.jpg" %></p>
               </div>
               <div class="panel-body text-center">
-                <p class="text-left"><%= link_to @user.name, user_path %><br>
+                <p class="text-left">
+                  <%= link_to @user.name, user_path %><br>
                 <span class="fontbold">タイトル: <%= nelcopost.title %></span>
                 <div class="text-left">
                   <%= render "favorites/fav_button", nelcopost: nelcopost %>
