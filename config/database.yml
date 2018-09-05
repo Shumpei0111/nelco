@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encording: unicode
+  pool: 5
   database: nelco_production
   username: nelco
   password: <%= ENV['NELCO_DATABASE_PASSWORD'] %>
