@@ -72,12 +72,13 @@ body  {
   margin: 100px;
 }
 
-.panel-default>.panel-heading  {
+.panel-default>.panel-heading .post  {
   height: 300px;
   width: 100%;
   /* background-color: #ffffff; */
   border-bottom:  solid transparent;
   padding: 10px 10px;
+  border-color: none;
 }
 
 .panel-default>.panel-body  {

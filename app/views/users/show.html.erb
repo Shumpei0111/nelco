@@ -55,13 +55,13 @@
       </tr>
     </table>
 
-  <div class="col-md-3 col-ms-4 col-xs-12">
+  <div class="col-ms-3 col-xs-12">
     <% @nelcoposts.each do |nelcopost| %>
       <% if nelcopost.image.present? %>
         <div class="image_posts">
-          <!-- <div class="col-md-3"> -->
+           <div class="col-md-3"> 
             <div class="panel panel-default">
-              <div class="panel-heading text-center">
+              <div class="panel-heading text-center post">
                   <p class="text-left"><%= image_tag nelcopost.image.url %></p>
               </div>
               <div class="panel-body text-center">
@@ -77,7 +77,7 @@
                 <p class="text-right"><%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %></p>
               <% end %>
               </div>
-          <!--  </div> -->
+            </div>
           </div>
         
       <% else %>
