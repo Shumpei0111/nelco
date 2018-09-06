@@ -46,7 +46,7 @@
 
 <!-- 投稿ここから　-->
 <div class="row">
-  <div class="col-ms-3">
+  <div class="col-xs-12">
     <table class="post_name">
       <tr>
         <td>
@@ -56,7 +56,6 @@
     </table>
     <% @nelcoposts.each do |nelcopost| %>
       <% if nelcopost.image.present? %>
-        <%#= image.inspect %>
         <div class="image_posts">
           <div class="col-md-3">
             <div class="panel panel-default">
