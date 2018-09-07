@@ -32,12 +32,15 @@ class IconUploader < CarrierWave::Uploader::Base
    version :thumb do
      process resize_to_fit: [200, 200]
      
-     def full_filename(for_file)
-      super.chomp(File.extname(super)) + '.jpg'
-     end
+    def filename
+     "#{Time.now.to_i}.jpg" if original_filename.present?
+    end
    end
    
    process resize_to_fit: [300, 300]
+    def filename
+     "#{Time.now.to_i}.jpg" if original_filename.present?
+    end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -56,10 +59,6 @@ class IconUploader < CarrierWave::Uploader::Base
   
   def size_range
     1..3.megabytes
-  end
-
-  def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
   
 end
