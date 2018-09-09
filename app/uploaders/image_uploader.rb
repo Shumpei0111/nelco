@@ -3,14 +3,20 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
    
-   if Rails.env.production?
-     include Cloudinary::CarrierWave
-    else
-     storage :file
-   end
+   #if Rails.env.production?
+   #  include Cloudinary::CarrierWave
+   # else
+   #  storage :file
+   #end
+   
+  unless Rails.env.production?
+    include Cloudinary::CarrierWave
+  else
+    storage :file
+  end
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  #storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -69,8 +75,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     1..3.megabytes
   end
   
-  def public_id
-    return User.id
-  end
+  #def public_id
+  #  return User.id
+  #end
   
 end
