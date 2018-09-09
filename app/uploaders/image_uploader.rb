@@ -9,7 +9,7 @@ class ImageUploader < CarrierWave::Uploader::Base
    #  storage :file
    #end
    
-  unless Rails.env.production?
+  if Rails.env.production?
     include Cloudinary::CarrierWave
   else
     storage :file
