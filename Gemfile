@@ -64,4 +64,15 @@ gem 'social-share-button'
 
 group :production do
   gem 'pg', '0.21.0'
+  gem 'thin'
 end
+
+gem "heroku"
+
+group :test, :development do
+    gem 'sqlite3'
+end
+
+gem 'jquery-rails'
+
+gem 'cloudinary'

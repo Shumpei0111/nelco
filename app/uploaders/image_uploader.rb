@@ -2,6 +2,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick
+   include Cloudinary::CarrierWave
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -61,6 +62,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   def size_range
     1..3.megabytes
+  end
+  
+  def public_id
+    return User.id
   end
   
 end
