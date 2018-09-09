@@ -6,16 +6,16 @@ class IconUploader < CarrierWave::Uploader::Base
     if Rails.env.production?
      include Cloudinary::CarrierWave
     else
-     storage :file
+     storage :fog
     end
 
   # Choose what kind of storage to use for this uploader:
   #storage :file
   # storage :fog
   
-  unless Rails.env.production?
-    storage :file
-　end
+  #unless Rails.env.production?
+  #  storage :file
+　#end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
