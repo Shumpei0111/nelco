@@ -72,6 +72,7 @@
                   <div class="share_button">
                     <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                   </div>
+                  <p><small><%= nelcopost.created_at %></small></p>
                 </div>
               <% if current_user == @user %>
                 <p class="text-right"><%= link_to "Delete", nelcopost_path(nelcopost), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-xs" %></p>
