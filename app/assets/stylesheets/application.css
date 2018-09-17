@@ -28,7 +28,7 @@ body  {
 }
 
 .navbar  {
-    background-color: #AAD7FF;
+    background-color: rgba(170, 215, 255, 0.5);
 }
 
 .navbar-header img  {
