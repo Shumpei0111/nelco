@@ -76,3 +76,5 @@ end
 gem 'jquery-rails'
 
 gem 'cloudinary'
+
+gem "loofah"
